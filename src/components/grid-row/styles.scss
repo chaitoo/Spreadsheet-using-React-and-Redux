@@ -1,0 +1,9 @@
+.grid-row {
+	white-space: nowrap;
+
+	&:after {
+		clear: both;
+		content: '';
+		display: block;
+	}
+}
