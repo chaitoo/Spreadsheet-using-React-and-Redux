@@ -1,5 +1,5 @@
 const grid = (state = {}, action) => {
-	//console.log(action);
+
 	switch(action.type) {
 		case 'GRID_INIT':
 			const data = action.payload;
@@ -143,9 +143,6 @@ const grid = (state = {}, action) => {
 		case 'COL_ADD': {
 			const {isLeft, currentIndex} = action.payload;
 
-			// TODO: Handle case when colCount is 0 and rowCount is N
-			// Hmmmm..... This action can only be dispatched by a col component, so minimum 1 col is must
-			// If Add Col functionality is given to the Grid component, it can pass on the required rowCount
 			const rowCount = state.data.length;
 
 			let data = state.data;
