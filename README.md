@@ -24,6 +24,6 @@ BuyHatke Frontend Task #2
     * Add Coloumn Left: Adds an empty Coloumn to the left of current Coloumn.
     * Add Coloumn Right: Adds an empty Coloumn to the right of current Coloumn.
     * Remove Coloumn: Deletes the entire selected Coloumn.
-* Operations: Header is where you can perform any kind of arithmetic operations(addition, substraction, power, etc). Format for the operation is : `a4=a1+a2`, here a4 is the target cell number.
+* Operations: Header is where you can perform any kind of arithmetic operations(addition, substraction, power, etc). Format for the operation is : `a4=a1+a2`, here a4 is the target cell number. Note: Column name starts from 1 and not 0.
 * Save CSV: You can save the data of the spreadsheet as csv in the localstorage by clicking `Save` button in the header.
 * Load Data: You can load the previously saved csv back onto the spreadsheet by clicking `Load` button in the header.

@@ -21,26 +21,44 @@ const GridCell = ({data, rowIndex, colIndex, saveChanges, rowAdd, rowMove, rowRe
 		else {
 			saveChanges(e.target.value);
 		}
-	} 
+	}
 
-	const showControls = () => {
+	const showControls = (colIndex, rowIndex) => {
 		let controls = document.querySelectorAll('.grid-cell-controls.active').forEach(item => item.classList.toggle('active'));
 		// controls.forEach
 		if(_controls)
 			_controls.classList.add('active');
+		var calculate_box = document.getElementsByClassName('formula-input-wrapper')[0];
+		calculate_box.children[0].value = String.fromCharCode(rowIndex+97)+colIndex+' = ';
 	}
+
+	// document.body.addEventListener('click',function(){
+	// 	console.log(this);
+	// 	var flag = 0;
+	// 	var cell_controls = document.getElementsByClassName('grid-cell-controls');
+	// 	for (var i = 0; i < cell_controls.length; i++) {
+	// 		if(cell_controls[i].classList.contains('active'))
+	// 			flag = 1;
+	// 	}
+	// 	if (flag === 1) {
+	// 		for (var i = 0; i < cell_controls.length; i++) {
+	// 			cell_controls[i].classList.remove('active');
+	// 		}
+	// 	}
+	//
+	// })
 
 	return (
 		<div className='grid-cell'>
 			{
 				colIndex === 0 && <div className="row-head">{String.fromCharCode(rowIndex+97)}</div>
 			}
-			<input 
-				type="text" 
-				value={data} 
+			<input
+				type="text"
+				value={data}
 				ref={input => _input = input}
 				onChange={e => handleInput(e)}
-				onFocus={() => showControls()} />
+				onFocus={() => showControls(colIndex, rowIndex)} />
 
 			<div className="grid-cell-controls" ref={controls => _controls = controls}>
 				<div>

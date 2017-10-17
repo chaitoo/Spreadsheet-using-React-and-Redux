@@ -13,6 +13,6 @@ const store = configureStore();
 ReactDOM.render(
 	<Provider store={store}>
 		<Grid rowCount={25} colCount={25} />
-	</Provider>, 
+	</Provider>,
 	document.getElementById('root')
 );

@@ -8,9 +8,10 @@ import { GridRow } from '../../components';
 import { csvGeneratedGrid, generateGrid, saveChanges } from '../../actions';
 
 const Grid = ({data, colCount, rowCount, generateGrid, csvGeneratedGrid, computeCell}) => {
+
 	if(!data) {
 		generateGrid(rowCount, colCount);
-		
+
 		return <div>
 			Loading.....
 		</div>;
@@ -21,12 +22,11 @@ const Grid = ({data, colCount, rowCount, generateGrid, csvGeneratedGrid, compute
 	const saveToCSV = () => {
 		const csv = data.map(item => item.join(',')).join('\n');
 
-		// TODO: Save to memory Bitch!!!!
 		localStorage.setItem('csv', csv);
 	}
 
 	const loadFromCSV = () => {
-		// TODO: Come-on Bitch... not again!!!! Load from memory
+
 		const loadedCSV = localStorage.getItem('csv');
 
 		csvGeneratedGrid(loadedCSV);
@@ -61,7 +61,7 @@ const Grid = ({data, colCount, rowCount, generateGrid, csvGeneratedGrid, compute
 		for (var i = 0; i <= operands.length; i++) {
 			if(operands[i]) {
 				coords = getValueFromExpression(operands[i])
-				
+
 				scope[operands[i]] = parseInt(data[coords.row][coords.col]);
 
 				if(i === 0) {
@@ -75,13 +75,16 @@ const Grid = ({data, colCount, rowCount, generateGrid, csvGeneratedGrid, compute
 		computeCell(result, resultCell.row, resultCell.col);
 	}
 
+
+
+
 	return (
 		<div className="component-grid">
 			<div className="grid-controls-wrapper">
 				<div className="formula-input-wrapper">
-					<input 
-						type="text" 
-						name="formula-input" 
+					<input
+						type="text"
+						name="formula-input"
 						placeholder="a4 = a1 + b2"
 						ref={input => _formulaInput = input} />
 					<button onClick={calculateFormula}>Calculate</button>
@@ -92,7 +95,7 @@ const Grid = ({data, colCount, rowCount, generateGrid, csvGeneratedGrid, compute
 				</div>
 			</div>
 			<div className="grid-content-wrapper">
-				{ 
+				{
 					data.map((dataItem, i) => <GridRow data={dataItem} key={i} rowIndex={i} />)
 				}
 			</div>
